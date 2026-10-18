@@ -44,6 +44,7 @@ uvicorn app.main:create_app --factory --host 127.0.0.1 --port 8000
 |---|---|
 | `DATABASE_PATH` | `data/zhixing.db`，SQLite 路径 |
 | `PUBLIC_ORIGIN` | 可选；TLS 反向代理下配置公开 HTTPS 来源，例如 `https://example.com`，保留同源写入检查 |
+| `RENDER_EXTERNAL_URL` | Render 自动提供的公网来源；未显式设置 PUBLIC_ORIGIN 时用于同源校验 |
 | `COOKIE_SECURE` | `0`；HTTPS 生产设为 `1` |
 | `PORT` | Docker 启动端口，默认 `8000`；本地 uvicorn 可用 `--port` |
 | `AI_API_KEY` | 可选；只在服务端使用 |

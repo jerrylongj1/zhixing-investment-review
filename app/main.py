@@ -28,7 +28,7 @@ def create_app(db_path: str = None) -> FastAPI:
     async def session(request: Request, call_next):
         if request.method in ('POST','PUT','PATCH','DELETE'):
             origin=request.headers.get('origin')
-            allowed_origin=os.getenv('PUBLIC_ORIGIN',str(request.base_url)).rstrip('/')
+            allowed_origin=(os.getenv('PUBLIC_ORIGIN') or os.getenv('RENDER_EXTERNAL_URL') or str(request.base_url)).rstrip('/')
             if origin and origin.rstrip('/')!=allowed_origin:
                 return JSONResponse({'detail':'跨站写入请求被拒绝'},status_code=403)
             if request.headers.get('content-type','').split(';')[0]!='application/json' and request.url.path!='/api/demo':
@@ -179,7 +179,7 @@ def create_app(db_path: str = None) -> FastAPI:
     @app.get('/source.git')
     def source_index(request:Request):
         if not source_root: raise HTTPException(404,'未启用公开源码快照')
-        return Response('Read-only Git source snapshot.\nClone: git clone '+os.getenv('PUBLIC_ORIGIN',str(request.base_url)).rstrip('/')+'/source.git\nOnly code is served; user data is excluded.\n',media_type='text/plain')
+        return Response('Read-only Git source snapshot.\nClone: git clone '+(os.getenv('PUBLIC_ORIGIN') or os.getenv('RENDER_EXTERNAL_URL') or str(request.base_url)).rstrip('/')+'/source.git\nOnly code is served; user data is excluded.\n',media_type='text/plain')
     @app.get('/source.git/{source_path:path}')
     def source_file(source_path:str):
         allowed=r'HEAD|info/refs|objects/info/packs|objects/[0-9a-f]{2}/[0-9a-f]{38}|objects/pack/pack-[0-9a-f]{40}\.(pack|idx)'

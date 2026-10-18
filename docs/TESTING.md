@@ -15,7 +15,7 @@ pnpm build
 
 本次环境的等价命令使用工作区 Python 虚拟环境、捆绑 Node 的绝对路径执行 pytest、Node test runner、TypeScript 和 Vite，源码不依赖这些机器路径。
 
-最新结果：**42 项 Python 测试通过，2 项前端时间测试通过，TypeScript 检查及 Vite 生产构建通过**。pytest 有 1 条上游 Starlette 对 httpx TestClient 的弃用提示；不影响本次结果，未隐瞒或关闭该提示。
+最新结果：**43 项 Python 测试通过，2 项前端时间测试通过，TypeScript 检查及 Vite 生产构建通过**。pytest 有 1 条上游 Starlette 对 httpx TestClient 的弃用提示；不影响本次结果，未隐瞒或关闭该提示。
 
 | 范围 | 覆盖 |
 |---|---|

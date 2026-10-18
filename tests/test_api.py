@@ -87,3 +87,10 @@ def test_explicit_public_origin_behind_tls_proxy(tmp_path,monkeypatch):
     a=client(tmp_path)
     assert a.post('/api/demo',json={},headers={'Origin':'https://example.test'}).status_code==200
     assert a.post('/api/demo',json={},headers={'Origin':'https://evil.test'}).status_code==403
+
+def test_render_external_url_is_canonical_origin(tmp_path,monkeypatch):
+    monkeypatch.delenv('PUBLIC_ORIGIN',raising=False)
+    monkeypatch.setenv('RENDER_EXTERNAL_URL','https://zhixing-example.onrender.com')
+    a=client(tmp_path)
+    assert a.post('/api/demo',json={},headers={'Origin':'https://zhixing-example.onrender.com'}).status_code==200
+    assert a.post('/api/demo',json={},headers={'Origin':'https://evil.test'}).status_code==403
