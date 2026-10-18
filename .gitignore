@@ -1,0 +1,10 @@
+__pycache__/
+.pytest_cache/
+.env
+*.db
+*.db-*
+node_modules/
+web/dist/
+.superpowers/
+.DS_Store
+*.tsbuildinfo

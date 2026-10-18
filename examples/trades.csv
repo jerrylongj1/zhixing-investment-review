@@ -1,0 +1,3 @@
+id,symbol,side,quantity,price,fee,currency,traded_at
+sample-1,DEMO.A,buy,100,10.00,1.00,CNY,2024-03-04T10:15:00+08:00
+sample-2,DEMO.A,sell,40,12.00,1.00,CNY,2024-03-12T10:30:00+08:00

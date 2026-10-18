@@ -1,0 +1,1 @@
+{"evidence":[{"id":"IMPORT-1","symbol":"DEMO.A","kind":"event","title":"构造经营简报 · 示例","occurred_at":"2024-03-01T00:00:00+08:00","available_at":"2024-03-01T18:00:00+08:00","collected_at":"2024-03-18T09:00:00+08:00","source":"构造示例，不是真实经营数据","raw":{"text":"构造数据：收入增长，但利润改善仍待验证。","revenue_yoy_pct":12.4},"unit":"%","methodology":"构造案例；数值为同比百分比，非真实证券","quality":"ok"}]}

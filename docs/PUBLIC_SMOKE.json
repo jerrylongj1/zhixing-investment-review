@@ -1,0 +1,13 @@
+{
+  "health": "ok",
+  "html": true,
+  "future_hidden": true,
+  "mode": "rules",
+  "decision_information_set": true,
+  "checklist": true,
+  "export": true,
+  "source_head": 200,
+  "source_config_blocked": 404,
+  "session_secure": true,
+  "cross_session_blocked": 404
+}
